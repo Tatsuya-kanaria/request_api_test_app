@@ -3,7 +3,7 @@ class RequestController < ApplicationController
   require 'uri'
 
   def connection
-    url = URI.parse('http://localhhost:3000/api')
+    url = URI.parse('http://localhost:3000/api')
     req = Net::HTTP::Get.new(url.path)
     res = Net::HTTP.start(url.host, url.port) { |http| http.request(req) }
     render plain: res.body
